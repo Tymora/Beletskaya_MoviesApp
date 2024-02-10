@@ -5,11 +5,11 @@ import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.Genre
 import androidx.room.PrimaryKey
 
 data class Movie(
-    val countries: List<Country>,
-    val genres: List<Genre>,
+    val countries: String,
+    val genres:String,
     val imdbId: String,
     val kinopoiskId: Int,
-    val nameEn: Any,
+    val nameEn: String,
     val nameOriginal: String,
     val nameRu: String,
     val posterUrl: String,
@@ -17,6 +17,7 @@ data class Movie(
     val ratingImdb: Double,
     val ratingKinopoisk: Double,
     val type: String,
-    val year: Int
+    val year: Int,
 
+    val category: String
 )

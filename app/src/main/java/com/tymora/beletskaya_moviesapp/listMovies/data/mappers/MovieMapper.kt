@@ -8,10 +8,8 @@ fun MovieDto.toMovieEntity(
     category: String
 ): MovieEntity {
     return MovieEntity(
-        countries = countries,
-        genres = genres,
         imdbId = imdbId?: "",
-        kinopoiskId = kinopoiskId,
+        kinopoiskId = kinopoiskId?: -1,
         nameEn = nameEn?: "",
         nameOriginal = nameOriginal?: "",
         nameRu = nameRu?: "",
@@ -20,12 +18,15 @@ fun MovieDto.toMovieEntity(
         ratingImdb = ratingImdb?: 0.0,
         ratingKinopoisk = ratingKinopoisk?: 0.0,
         type = type?: "",
-        year = year?: 0
+        year = year?: 0,
+
+        genres = genres?.joinToString(",") ?: "",
+        countries = countries?.joinToString(",") ?: "",
+
+        category = category
+
     )
 }
-
-
-
 
 
 fun MovieEntity.toMovie(
@@ -44,6 +45,7 @@ fun MovieEntity.toMovie(
         ratingImdb = ratingImdb,
         ratingKinopoisk = ratingKinopoisk,
         type = type,
-        year = year
+        year = year,
+        category = category,
     )
 }

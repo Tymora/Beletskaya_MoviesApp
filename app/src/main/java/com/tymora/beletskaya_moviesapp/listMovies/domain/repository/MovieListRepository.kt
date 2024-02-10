@@ -1,7 +1,7 @@
 package com.tymora.beletskaya_moviesapp.listMovies.domain.repository
 
 import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
-import com.tymora.beletskaya_moviesapp.listMovies.domain.utill.Resource
+import com.tymora.beletskaya_moviesapp.listMovies.utill.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface MovieListRepository {

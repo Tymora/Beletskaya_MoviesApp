@@ -7,10 +7,10 @@ import androidx.room.Entity
 
 @Entity
 data class MovieEntity(
-    val countries: List<Country>,
-    val genres: List<Genre>,
+    val countries: String,
+    val genres: String,
     val imdbId: String,
-    val nameEn: Any,
+    val nameEn: String,
     val nameOriginal: String,
     val nameRu: String,
     val posterUrl: String,
@@ -23,4 +23,5 @@ data class MovieEntity(
     @PrimaryKey
     val kinopoiskId: Int, //todo уточнить
 
+    val category: String,
 )

@@ -5,7 +5,7 @@ import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toMovie
 import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toMovieEntity
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.MovieApi
 import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
-import com.tymora.beletskaya_moviesapp.listMovies.domain.utill.Resource
+import com.tymora.beletskaya_moviesapp.listMovies.utill.Resource
 import com.tymora.beletskaya_moviesapp.listMovies.domain.repository.MovieListRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -33,7 +33,8 @@ class MovieListRepositoryImpl @Inject constructor(
             val shouldLoadLocalMovie = localMovieList.isNotEmpty() && !forceFetchFromRemote
 
             if (shouldLoadLocalMovie) {
-                emit(Resource.Success(
+                emit(
+                    Resource.Success(
                     data = localMovieList.map { movieEntity ->
                         movieEntity.toMovie(category)
                     }
@@ -44,7 +45,7 @@ class MovieListRepositoryImpl @Inject constructor(
             }
 
             val movieListFromApi = try {
-                movieApi.getMoviesList(category, page)
+                movieApi.getMoviesList(page)
             } catch (e: IOException) {
                 e.printStackTrace()
                 emit(Resource.Error(message = "Error loading movies"))
@@ -67,7 +68,8 @@ class MovieListRepositoryImpl @Inject constructor(
 
             movieDatabase.movieDao.upsertMovieList(movieEntities)
 
-            emit(Resource.Success(
+            emit(
+                Resource.Success(
                 movieEntities.map { it.toMovie(category) }
             ))
             emit(Resource.Loading(false))

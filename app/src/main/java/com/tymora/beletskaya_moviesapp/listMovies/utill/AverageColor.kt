@@ -1,4 +1,4 @@
-package com.tymora.beletskaya_moviesapp.listMovies.domain.utill
+package com.tymora.beletskaya_moviesapp.listMovies.utill
 
 
 import android.graphics.Bitmap
