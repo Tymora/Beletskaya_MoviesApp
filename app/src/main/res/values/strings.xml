@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Beletskaya_MoviesApp</string>
+    <string name="popular_movies">Популярные</string>
+    <string name="favorite_movie">Избранное</string>
+    <string name="votes">" Votes"</string>
+    <string name="country">Страны:</string>
+    <string name="genres">Жанры:</string>
 </resources>

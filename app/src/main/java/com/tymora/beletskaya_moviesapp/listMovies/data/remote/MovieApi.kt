@@ -1,6 +1,7 @@
 package com.tymora.beletskaya_moviesapp.listMovies.data.remote
 
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.ListMovie
+import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
@@ -10,6 +11,7 @@ interface MovieApi {
 
     @GET("api/v2.2/films/collections?type=TOP_250_MOVIES")
     suspend fun getMoviesList(
+        @Path("category") category: String,
         @Query("page") page: Int,
         @Header("X-API-KEY") apiKey: String = API_KEY
     ): ListMovie
@@ -17,7 +19,7 @@ interface MovieApi {
 
     companion object{
         const val URL = "https://kinopoiskapiunofficial.tech/"
-        const val IMAGE_URL = "https://kinopoiskapiunofficial.tech/images/posters/kp/435.jpg"
+        const val DESCRIPT_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/"
         const val API_KEY = "206ac5bc-dfea-4e14-a637-72966e7e3c70"
     }
 }

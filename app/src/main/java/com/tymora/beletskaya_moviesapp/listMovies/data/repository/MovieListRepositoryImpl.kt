@@ -45,7 +45,7 @@ class MovieListRepositoryImpl @Inject constructor(
             }
 
             val movieListFromApi = try {
-                movieApi.getMoviesList(page)
+                movieApi.getMoviesList(category, page)
             } catch (e: IOException) {
                 e.printStackTrace()
                 emit(Resource.Error(message = "Error loading movies"))
