@@ -2,9 +2,7 @@ package com.tymora.beletskaya_moviesapp.listMovies.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.CircularProgressIndicator
@@ -41,7 +39,7 @@ fun FavoriteMoviesScreen (
                     topMovies = movieListState.favoriteTopMoviesList[index],
                     navHostController = navController
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+
 
                 if (index >= movieListState.favoriteTopMoviesList.size - 1 && !movieListState.isLoading) {
                     onEvent(MovieListUiEvent.Paginate(Category.FAVORITE))
