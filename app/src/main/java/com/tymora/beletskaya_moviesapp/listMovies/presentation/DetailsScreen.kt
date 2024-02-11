@@ -26,14 +26,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.drawable.toBitmap
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavBackStackEntry
 import coil.compose.AsyncImagePainter
@@ -43,25 +41,16 @@ import coil.size.Size
 import com.tymora.beletskaya_moviesapp.R
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.MovieApi
 import com.tymora.beletskaya_moviesapp.listMovies.utill.RatingBar
-import com.tymora.beletskaya_moviesapp.listMovies.utill.getAverageColor
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
+
 
 @Composable
-fun DetailsScreen(topMovies: TopMovies) {
-
+fun DetailsScreen() {
     val detailsViewModel = hiltViewModel<DetailsViewModel>()
     val detailsState = detailsViewModel.detailsState.collectAsState().value
 
     val backDropImageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(topMovies.posterUrl)
-            .size(Size.ORIGINAL)
-            .build()
-    ).state
-
-    val posterImageState = rememberAsyncImagePainter(
-        model = ImageRequest.Builder(LocalContext.current)
-            .data(topMovies.posterUrl)
+            .data(detailsState.movie?.posterUrl)
             .size(Size.ORIGINAL)
             .build()
     ).state
@@ -105,38 +94,6 @@ fun DetailsScreen(topMovies: TopMovies) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .width(160.dp)
-                    .height(240.dp)
-            ) {
-                if (posterImageState is AsyncImagePainter.State.Error) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clip(RoundedCornerShape(12.dp))
-                            .background(MaterialTheme.colorScheme.primaryContainer),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(70.dp),
-                            imageVector = Icons.Rounded.ImageNotSupported,
-                            contentDescription = detailsState.movie?.nameRu
-                        )
-                    }
-                }
-
-                if (posterImageState is AsyncImagePainter.State.Success) {
-                    Image(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clip(RoundedCornerShape(12.dp)),
-                        painter = posterImageState.painter,
-                        contentDescription = detailsState.movie?.nameRu,
-                        contentScale = ContentScale.Crop
-                    )
-                }
-            }
 
             detailsState.movie?.let { movie ->
                 Column(
