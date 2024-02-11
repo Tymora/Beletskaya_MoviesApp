@@ -85,9 +85,9 @@ class MovieListRepositoryImpl @Inject constructor(
             val movieEntity = movieDatabase.movieDao.getMovieById(id)
 
             if (movieEntity != null) {
-//                emit(
-//                    Resource.Success(movieEntity.toMovie(movieEntity.category))
-//                )
+                emit(
+                    Resource.Success(movieEntity.toTopMovies(movieEntity.category))
+                )
 
                 emit(Resource.Loading(false))
                 return@flow

@@ -3,7 +3,7 @@
     <string name="popular_movies">Популярные</string>
     <string name="favorite_movie">Избранное</string>
     <string name="votes">" Votes"</string>
-    <string name="country">Страны:</string>
-    <string name="genres">Жанры:</string>
-    <string name="overview">Описание:</string>
+    <string name="country">Страны: </string>
+    <string name="genres">Жанры: </string>
+    <string name="overview">Описание: </string>
 </resources>

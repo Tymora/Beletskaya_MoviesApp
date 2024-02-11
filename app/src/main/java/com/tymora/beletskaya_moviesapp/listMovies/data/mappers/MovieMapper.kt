@@ -8,20 +8,19 @@ fun MovieDto.toMovieEntity(
     category: String
 ): MovieEntity {
     return MovieEntity(
-        imdbId = imdbId?: "",
-        kinopoiskId = kinopoiskId?: -1,
+        imdbId = imdbId,
+        kinopoiskId = kinopoiskId,
         nameEn = nameEn?: "",
-        nameOriginal = nameOriginal?: "",
-        nameRu = nameRu?: "",
-        posterUrl = posterUrl?: "",
-        posterUrlPreview = posterUrlPreview?: "",
-        ratingImdb = ratingImdb?: 0.0,
-        ratingKinopoisk = ratingKinopoisk?: 0.0,
-        type = type?: "",
-        year = year?: 0,
-
-        genres = genres?.joinToString(",") ?: "",
-        countries = countries?.joinToString(",") ?: "",
+        nameOriginal = nameOriginal,
+        nameRu = nameRu,
+        posterUrl = posterUrl,
+        posterUrlPreview = posterUrlPreview,
+        ratingImdb = ratingImdb,
+        ratingKinopoisk = ratingKinopoisk,
+        type = type,
+        year = year,
+        genres = genres?.joinToString(",") { it.genre }?: "" ,
+        countries = countries?.joinToString(",") { it.country }?: "",
 
         category = category
 
