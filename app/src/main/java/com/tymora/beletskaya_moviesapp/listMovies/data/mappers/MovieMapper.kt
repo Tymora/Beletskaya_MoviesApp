@@ -46,6 +46,6 @@ fun MovieEntity.toTopMovies(
         ratingKinopoisk = ratingKinopoisk,
         type = type,
         year = year,
-        category = category,
+        category = category
     )
 }

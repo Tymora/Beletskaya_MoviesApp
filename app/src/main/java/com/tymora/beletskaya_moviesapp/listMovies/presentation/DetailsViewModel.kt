@@ -1,4 +1,4 @@
-package com.tymora.beletskaya_moviesapp.listMovies.details
+package com.tymora.beletskaya_moviesapp.listMovies.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
@@ -51,7 +52,7 @@ class DetailsViewModel @Inject constructor(
                     is Resource.Success -> {
                         result.data?.let { movie ->
                             _detialsState.update {
-                                it.copy(topMovies = movie)
+                                it.copy(movie = movie)
                             }
                         }
                     }
@@ -59,4 +60,5 @@ class DetailsViewModel @Inject constructor(
             }
         }
     }
+
 }

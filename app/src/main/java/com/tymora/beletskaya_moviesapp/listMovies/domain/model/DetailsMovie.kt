@@ -1,7 +1,5 @@
 package com.tymora.beletskaya_moviesapp.listMovies.domain.model
 
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.details.Country
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.details.Genre
 
 data class DetailsMovie(
     val completed: Boolean,
