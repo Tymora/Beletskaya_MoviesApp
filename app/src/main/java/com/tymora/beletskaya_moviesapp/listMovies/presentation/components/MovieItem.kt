@@ -119,7 +119,8 @@ fun MovieItem(
                 Text(
                     modifier = Modifier
                         .width(246.dp)
-                        .height(22.dp),
+                        .height(22.dp)
+                        .padding(start = 20.dp),
                     text = topMovies.nameRu,
                     color = Color.Black,
                     fontSize = 20.sp,
