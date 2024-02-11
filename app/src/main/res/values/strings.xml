@@ -5,4 +5,5 @@
     <string name="votes">" Votes"</string>
     <string name="country">Страны:</string>
     <string name="genres">Жанры:</string>
+    <string name="overview">Описание:</string>
 </resources>
