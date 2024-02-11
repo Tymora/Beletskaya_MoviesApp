@@ -48,6 +48,9 @@ import com.tymora.beletskaya_moviesapp.R
 import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 import com.tymora.beletskaya_moviesapp.listMovies.utill.Screen
 import com.tymora.beletskaya_moviesapp.listMovies.utill.getAverageColor
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 
 
 @Composable
@@ -72,7 +75,6 @@ fun MovieItem(
             .width(437.dp)
             .height(124.dp)
             .clip(RoundedCornerShape(20.dp))
-            .shadow(6.6.dp)
             .clickable {
                 navHostController.navigate(Screen.Details.rout + "/${topMovies.kinopoiskId}")
             }
@@ -104,6 +106,7 @@ fun MovieItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()
+                    .shadow(6.6.dp)
                     .padding(start = 20.dp, bottom = 20.dp, top = 20.dp)
             ) {
                 Image(
@@ -119,13 +122,16 @@ fun MovieItem(
                 Text(
                     modifier = Modifier
                         .width(246.dp)
-                        .height(22.dp)
+                        .height(26.dp)
                         .padding(start = 20.dp),
                     text = topMovies.nameRu,
                     color = Color.Black,
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight.Black,
                     fontSize = 20.sp,
                     maxLines = 1
                 )
+
             }
         }
     }

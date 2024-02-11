@@ -36,14 +36,13 @@ fun PopularMoviesScreen(
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(2.dp),
             modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(2.dp)
+
         ) {
             items(movieListState.popularTopMoviesList.size) { index ->
                 MovieItem(
                     topMovies = movieListState.popularTopMoviesList[index],
                     navHostController = navController
                 )
-                Spacer(modifier = Modifier.height(16.dp))
 
                 if (index >= movieListState.popularTopMoviesList.size - 1 && !movieListState.isLoading) {
                     onEvent(MovieListUiEvent.Paginate(Category.POPULAR))
