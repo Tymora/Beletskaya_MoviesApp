@@ -16,7 +16,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 import com.tymora.beletskaya_moviesapp.listMovies.presentation.DetailsScreen
 import com.tymora.beletskaya_moviesapp.ui.theme.MoviesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +23,7 @@ import com.tymora.beletskaya_moviesapp.listMovies.utill.Screen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
