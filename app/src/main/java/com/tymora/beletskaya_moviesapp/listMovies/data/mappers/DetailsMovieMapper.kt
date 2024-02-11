@@ -1,10 +1,9 @@
 package com.tymora.beletskaya_moviesapp.listMovies.data.mappers
 
-import com.tymora.beletskaya_moviesapp.listMovies.data.local.MovieEntity
 import com.tymora.beletskaya_moviesapp.listMovies.data.local.detail.MovieEntityDetails
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.details.MovieDetailsData
 import com.tymora.beletskaya_moviesapp.listMovies.domain.model.DetailsMovie
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
+
 
 fun MovieDetailsData.toMovieEntityDetails(
     category: String

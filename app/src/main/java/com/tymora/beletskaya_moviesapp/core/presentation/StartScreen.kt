@@ -83,8 +83,8 @@ fun StartScreen(navController: NavHostController) {
                         onEvent = movieListViewModel::onEvent
                     )
                 }
-                composable(Screen.UpcomingMovieList.rout) {
-//                    PopularMoviesScreen()
+                composable(Screen.FavoriteMovieList.rout) {
+//                    FavoriteMoviesScreen()
                 }
             }
         }
@@ -132,7 +132,7 @@ fun BottomNavigationBar(
                         1 -> {
                             onEvent(MovieListUiEvent.Navigate)
                             bottomNavController.popBackStack()
-                            bottomNavController.navigate(Screen.UpcomingMovieList.rout)
+                            bottomNavController.navigate(Screen.FavoriteMovieList.rout)
                         }
                     }
                 }, icon = {
