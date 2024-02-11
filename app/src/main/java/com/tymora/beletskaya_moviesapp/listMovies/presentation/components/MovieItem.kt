@@ -127,7 +127,7 @@ fun MovieItem(
                     text = topMovies.nameRu,
                     color = Color.Black,
                     fontFamily = FontFamily.SansSerif,
-                    fontWeight = FontWeight.Black,
+                    fontWeight = FontWeight.Medium,
                     fontSize = 20.sp,
                     maxLines = 1
                 )

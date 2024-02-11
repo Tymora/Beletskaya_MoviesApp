@@ -25,6 +25,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -58,7 +60,9 @@ fun StartScreen(navController: NavHostController) {
                         stringResource(R.string.popular_movies)
                     else
                         stringResource(R.string.favorite_movie),
-                    fontSize = 20.sp
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 33.sp
                 )
             },
             modifier = Modifier.shadow(2.dp),
@@ -91,9 +95,6 @@ fun StartScreen(navController: NavHostController) {
     }
 
 }
-
-
-
 
 
 @Composable
@@ -143,7 +144,11 @@ fun BottomNavigationBar(
                     )
                 }, label = {
                     Text(
-                        text = bottomItem.title, color = MaterialTheme.colorScheme.onBackground
+                        text = bottomItem.title,
+                        color = MaterialTheme.colorScheme.onBackground,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 19.sp
                     )
                 })
             }
