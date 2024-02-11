@@ -10,7 +10,6 @@ interface MovieApi {
 
     @GET("api/v2.2/films/collections?type=TOP_250_MOVIES")
     suspend fun getMoviesList(
-        @Path("category") category: String,
         @Query("page") page: Int,
         @Header("X-API-KEY") apiKey: String = API_KEY
     ): ListMovie
