@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -26,11 +27,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.drawable.toBitmap
@@ -39,10 +42,10 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
+import com.tymora.beletskaya_moviesapp.R
 import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 import com.tymora.beletskaya_moviesapp.listMovies.utill.Screen
 import com.tymora.beletskaya_moviesapp.listMovies.utill.getAverageColor
-
 
 
 @Composable
@@ -64,18 +67,10 @@ fun MovieItem(
 
     Column(
         modifier = Modifier
-            .wrapContentHeight()
-            .width(200.dp)
-            .padding(8.dp)
-            .clip(RoundedCornerShape(28.dp))
-            .background(
-                Brush.verticalGradient(
-                    colors = listOf(
-                        MaterialTheme.colorScheme.secondaryContainer,
-                        dominantColor
-                    )
-                )
-            )
+            .width(437.dp)
+            .height(124.dp)
+            .clip(RoundedCornerShape(20.dp))
+            .shadow(6.6.dp)
             .clickable {
                 navHostController.navigate(Screen.Details.rout + "/${topMovies.kinopoiskId}")
             }
@@ -83,10 +78,9 @@ fun MovieItem(
         if (imageState is AsyncImagePainter.State.Error) {
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(6.dp)
-                    .height(250.dp)
-                    .clip(RoundedCornerShape(22.dp))
+                    .width(53.dp)
+                    .height(84.dp)
+                    .clip(RoundedCornerShape(5.6.dp))
                     .background(MaterialTheme.colorScheme.primaryContainer),
                 contentAlignment = Alignment.Center
             ) {
@@ -95,6 +89,7 @@ fun MovieItem(
                     imageVector = Icons.Rounded.ImageNotSupported,
                     contentDescription = topMovies.nameRu
                 )
+
             }
         }
 
@@ -103,45 +98,31 @@ fun MovieItem(
                 imageBitmap = imageState.result.drawable.toBitmap().asImageBitmap()
             )
 
-            Image(
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(6.dp)
-                    .height(250.dp)
-                    .clip(RoundedCornerShape(22.dp)),
-                painter = imageState.painter,
-                contentDescription = topMovies.nameRu,
-                contentScale = ContentScale.Crop
-            )
+                    .padding(start = 20.dp, bottom = 20.dp, top = 20.dp)
+            ) {
+                Image(
+                    modifier = Modifier
+                        .width(53.dp)
+                        .height(84.dp)
+                        .clip(RoundedCornerShape(5.6.dp)),
+                    painter = imageState.painter,
+                    contentDescription = topMovies.nameRu,
+                    contentScale = ContentScale.Crop
+                )
+
+                Text(
+                    modifier = Modifier
+                        .width(246.dp)
+                        .height(22.dp),
+                    text = topMovies.nameRu,
+                    color = Color.Black,
+                    fontSize = 20.sp,
+                    maxLines = 1
+                )
+            }
         }
-
-        Spacer(modifier = Modifier.height(6.dp))
-
-        Text(
-            modifier = Modifier.padding(start = 16.dp, end = 8.dp),
-            text = topMovies.nameRu,
-            color = Color.White,
-            fontSize = 15.sp,
-            maxLines = 1
-        )
-
-//        Row (
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(start = 16.dp, bottom = 12.dp, top = 4.dp)
-//        ) {
-//            RatingBar(
-//                starsModifier = Modifier.size(18.dp),
-//                rating = movie.vote_average / 2
-//            )
-//
-//            Text(
-//                modifier = Modifier.padding(start = 4.dp),
-//                text = movie.vote_average.toString().take(3),
-//                color = Color.LightGray,
-//                fontSize = 14.sp,
-//                maxLines = 1,
-//            )
-//        }
     }
 }
