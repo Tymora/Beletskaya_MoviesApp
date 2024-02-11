@@ -68,7 +68,7 @@ class MovieListViewModel @Inject constructor(
                         result.data?.let { popularList ->
                             _movieListState.update {
                                 it.copy(
-                                    popularMovieList = movieListState.value.popularMovieList
+                                    popularTopMoviesList = movieListState.value.popularTopMoviesList
                                             + popularList.shuffled(),
                                     popularMovieListPage = movieListState.value.popularMovieListPage + 1
                                 )

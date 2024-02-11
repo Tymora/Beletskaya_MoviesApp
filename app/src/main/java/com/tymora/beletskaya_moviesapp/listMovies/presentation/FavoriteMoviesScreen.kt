@@ -23,7 +23,7 @@ fun FavoriteMoviesScreen (
     onEvent: (MovieListUiEvent) -> Unit
 ) {
 
-    if (movieListState.upcomingMovieList.isEmpty()) {
+    if (movieListState.upcomingTopMoviesList.isEmpty()) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -36,14 +36,14 @@ fun FavoriteMoviesScreen (
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(vertical = 8.dp, horizontal = 4.dp)
         ) {
-            items(movieListState.upcomingMovieList.size) { index ->
+            items(movieListState.upcomingTopMoviesList.size) { index ->
                 MovieItem(
-                    movie = movieListState.upcomingMovieList[index],
+                    topMovies = movieListState.upcomingTopMoviesList[index],
                     navHostController = navController
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
-                if (index >= movieListState.upcomingMovieList.size - 1 && !movieListState.isLoading) {
+                if (index >= movieListState.upcomingTopMoviesList.size - 1 && !movieListState.isLoading) {
                     onEvent(MovieListUiEvent.Paginate(Category.UPCOMING))
                 }
 

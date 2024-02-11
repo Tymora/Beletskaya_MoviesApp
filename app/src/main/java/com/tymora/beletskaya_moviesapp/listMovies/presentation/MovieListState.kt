@@ -1,6 +1,6 @@
 package com.tymora.beletskaya_moviesapp.listMovies.presentation
 
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
+import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 data class MovieListState(
     val isLoading: Boolean = false,
 
@@ -9,6 +9,6 @@ data class MovieListState(
 
     val isCurrentPopularScreen: Boolean = true,
 
-    val popularMovieList: List<Movie> = emptyList(),
-    val upcomingMovieList: List<Movie> = emptyList()
+    val popularTopMoviesList: List<TopMovies> = emptyList(),
+    val upcomingTopMoviesList: List<TopMovies> = emptyList()
 )

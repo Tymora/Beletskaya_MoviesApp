@@ -51,7 +51,7 @@ class DetailsViewModel @Inject constructor(
                     is Resource.Success -> {
                         result.data?.let { movie ->
                             _detialsState.update {
-                                it.copy(movie = movie)
+                                it.copy(topMovies = movie)
                             }
                         }
                     }

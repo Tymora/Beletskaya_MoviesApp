@@ -1,10 +1,6 @@
 package com.tymora.beletskaya_moviesapp.listMovies.domain.model
 
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.Country
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.Genre
-import androidx.room.PrimaryKey
-
-data class Movie(
+data class TopMovies(
     val countries: String,
     val genres:String,
     val imdbId: String,

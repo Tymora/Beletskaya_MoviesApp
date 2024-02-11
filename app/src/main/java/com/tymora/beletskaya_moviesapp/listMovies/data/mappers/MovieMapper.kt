@@ -2,7 +2,7 @@ package com.tymora.beletskaya_moviesapp.listMovies.data.mappers
 
 import com.tymora.beletskaya_moviesapp.listMovies.data.local.MovieEntity
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.MovieDto
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
+import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 
 fun MovieDto.toMovieEntity(
     category: String
@@ -29,10 +29,10 @@ fun MovieDto.toMovieEntity(
 }
 
 
-fun MovieEntity.toMovie(
+fun MovieEntity.toTopMovies(
     category: String
-): Movie {
-    return Movie(
+): TopMovies {
+    return TopMovies(
         countries = countries,
         genres = genres,
         imdbId = imdbId,

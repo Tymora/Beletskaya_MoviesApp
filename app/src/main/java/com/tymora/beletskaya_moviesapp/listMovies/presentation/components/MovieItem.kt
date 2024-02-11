@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -40,9 +39,7 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.MovieApi
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
-import com.tymora.beletskaya_moviesapp.listMovies.utill.RatingBar
+import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 import com.tymora.beletskaya_moviesapp.listMovies.utill.Screen
 import com.tymora.beletskaya_moviesapp.listMovies.utill.getAverageColor
 
@@ -50,12 +47,12 @@ import com.tymora.beletskaya_moviesapp.listMovies.utill.getAverageColor
 
 @Composable
 fun MovieItem(
-    movie: Movie,
+    topMovies: TopMovies,
     navHostController: NavHostController
 ) {
     val imageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(movie.posterUrlPreview)
+            .data(topMovies.posterUrlPreview)
             .size(Size.ORIGINAL)
             .build()
     ).state
@@ -80,7 +77,7 @@ fun MovieItem(
                 )
             )
             .clickable {
-                navHostController.navigate(Screen.Details.rout + "/${movie.kinopoiskId}")
+                navHostController.navigate(Screen.Details.rout + "/${topMovies.kinopoiskId}")
             }
     ) {
         if (imageState is AsyncImagePainter.State.Error) {
@@ -96,7 +93,7 @@ fun MovieItem(
                 Icon(
                     modifier = Modifier.size(70.dp),
                     imageVector = Icons.Rounded.ImageNotSupported,
-                    contentDescription = movie.nameRu
+                    contentDescription = topMovies.nameRu
                 )
             }
         }
@@ -113,7 +110,7 @@ fun MovieItem(
                     .height(250.dp)
                     .clip(RoundedCornerShape(22.dp)),
                 painter = imageState.painter,
-                contentDescription = movie.nameRu,
+                contentDescription = topMovies.nameRu,
                 contentScale = ContentScale.Crop
             )
         }
@@ -122,7 +119,7 @@ fun MovieItem(
 
         Text(
             modifier = Modifier.padding(start = 16.dp, end = 8.dp),
-            text = movie.nameRu,
+            text = topMovies.nameRu,
             color = Color.White,
             fontSize = 15.sp,
             maxLines = 1

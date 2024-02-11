@@ -23,7 +23,7 @@ fun PopularMoviesScreen(
     onEvent: (MovieListUiEvent) -> Unit
 ) {
 
-    if (movieListState.popularMovieList.isEmpty()) {
+    if (movieListState.popularTopMoviesList.isEmpty()) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -36,14 +36,14 @@ fun PopularMoviesScreen(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(vertical = 8.dp, horizontal = 4.dp)
         ) {
-            items(movieListState.popularMovieList.size) { index ->
+            items(movieListState.popularTopMoviesList.size) { index ->
                 MovieItem(
-                    movie = movieListState.popularMovieList[index],
+                    topMovies = movieListState.popularTopMoviesList[index],
                     navHostController = navController
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
-                if (index >= movieListState.popularMovieList.size - 1 && !movieListState.isLoading) {
+                if (index >= movieListState.popularTopMoviesList.size - 1 && !movieListState.isLoading) {
                     onEvent(MovieListUiEvent.Paginate(Category.POPULAR))
                 }
 

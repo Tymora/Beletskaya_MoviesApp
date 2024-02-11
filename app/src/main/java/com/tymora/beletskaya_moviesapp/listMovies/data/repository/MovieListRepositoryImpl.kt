@@ -4,7 +4,7 @@ import com.tymora.beletskaya_moviesapp.listMovies.data.local.MovieDatabase
 import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toMovie
 import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toMovieEntity
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.MovieApi
-import com.tymora.beletskaya_moviesapp.listMovies.domain.model.Movie
+import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
 import com.tymora.beletskaya_moviesapp.listMovies.utill.Resource
 import com.tymora.beletskaya_moviesapp.listMovies.domain.repository.MovieListRepository
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +23,7 @@ class MovieListRepositoryImpl @Inject constructor(
         forceFetchFromRemote: Boolean,
         category: String,
         page: Int
-    ): Flow<Resource<List<Movie>>> {
+    ): Flow<Resource<List<TopMovies>>> {
         return flow {
 
             emit(Resource.Loading(true))
@@ -77,7 +77,7 @@ class MovieListRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getMovie(id: Int): Flow<Resource<Movie>> {
+    override suspend fun getMovie(id: Int): Flow<Resource<TopMovies>> {
         return flow {
 
             emit(Resource.Loading(true))

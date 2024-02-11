@@ -25,8 +25,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -34,17 +32,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.drawable.toBitmap
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavBackStackEntry
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
 import com.tymora.beletskaya_moviesapp.R
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.MovieApi
-import com.tymora.beletskaya_moviesapp.listMovies.utill.RatingBar
-import com.tymora.beletskaya_moviesapp.listMovies.utill.getAverageColor
+
 @Preview
 @Composable
 fun DetailsScreen() {
@@ -54,14 +48,14 @@ fun DetailsScreen() {
 
     val backDropImageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(detailsState.movie?.posterUrl)
+            .data(detailsState.topMovies?.posterUrl)
             .size(Size.ORIGINAL)
             .build()
     ).state
 
     val posterImageState = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(detailsState.movie?.posterUrl)
+            .data(detailsState.topMovies?.posterUrl)
             .size(Size.ORIGINAL)
             .build()
     ).state
@@ -82,7 +76,7 @@ fun DetailsScreen() {
                 Icon(
                     modifier = Modifier.size(70.dp),
                     imageVector = Icons.Rounded.ImageNotSupported,
-                    contentDescription = detailsState.movie?.nameRu
+                    contentDescription = detailsState.topMovies?.nameRu
                 )
             }
         }
@@ -93,7 +87,7 @@ fun DetailsScreen() {
                     .fillMaxWidth()
                     .height(220.dp),
                 painter = backDropImageState.painter,
-                contentDescription = detailsState.movie?.nameRu,
+                contentDescription = detailsState.topMovies?.nameRu,
                 contentScale = ContentScale.Crop
             )
         }
@@ -121,7 +115,7 @@ fun DetailsScreen() {
                         Icon(
                             modifier = Modifier.size(70.dp),
                             imageVector = Icons.Rounded.ImageNotSupported,
-                            contentDescription = detailsState.movie?.nameRu
+                            contentDescription = detailsState.topMovies?.nameRu
                         )
                     }
                 }
@@ -129,7 +123,7 @@ fun DetailsScreen() {
 //
             }
 
-            detailsState.movie?.let { movie ->
+            detailsState.topMovies?.let { movie ->
                 Column(
                     modifier = Modifier.fillMaxWidth()
                 ) {
