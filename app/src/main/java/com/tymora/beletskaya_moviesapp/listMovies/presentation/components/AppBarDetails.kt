@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,7 +33,9 @@ fun AppBarDetails(
     TopAppBar(
         title = { Text(text = "")},
         navigationIcon = ,
-        colors = purple200,
+        colors = TopAppBarDefaults.smallTopAppBarColors(
+            MaterialTheme.colorScheme.inverseOnSurface
+        ),
         modifier = Modifier.height(58.dp)
     ) {
         Row {
