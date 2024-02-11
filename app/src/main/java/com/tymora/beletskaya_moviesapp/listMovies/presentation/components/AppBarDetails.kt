@@ -29,7 +29,7 @@ fun AppBarDetails(
     pressOnBack: () -> Unit
 ) {
     TopAppBar(
-        title = "",
+        title = { Text(text = "")},
         navigationIcon = ,
         colors = purple200,
         modifier = Modifier.height(58.dp)
