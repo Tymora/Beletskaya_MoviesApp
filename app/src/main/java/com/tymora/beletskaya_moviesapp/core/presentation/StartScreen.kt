@@ -105,10 +105,8 @@ fun BottomNavigationBar(
     val items = listOf(
         BottomItem(
             title = stringResource(R.string.popular_movies),
-            icon = Icons.Rounded.Movie
         ), BottomItem(
             title = stringResource(R.string.favorite_movie),
-            icon = Icons.Rounded.Upcoming
         )
     )
 
@@ -118,7 +116,8 @@ fun BottomNavigationBar(
 
     NavigationBar {
         Row(
-            modifier = Modifier.background(MaterialTheme.colorScheme.inverseOnSurface)
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.inverseOnSurface)
         ) {
             items.forEachIndexed { index, bottomItem ->
                 NavigationBarItem(selected = selected.intValue == index, onClick = {
@@ -137,11 +136,6 @@ fun BottomNavigationBar(
                         }
                     }
                 }, icon = {
-                    Icon(
-                        imageVector = bottomItem.icon,
-                        contentDescription = bottomItem.title,
-                        tint = MaterialTheme.colorScheme.onBackground
-                    )
                 }, label = {
                     Text(
                         text = bottomItem.title,
@@ -154,9 +148,8 @@ fun BottomNavigationBar(
             }
         }
     }
-
 }
 
 data class BottomItem(
-    val title: String, val icon: ImageVector
+    val title: String
 )
