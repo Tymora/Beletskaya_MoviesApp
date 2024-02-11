@@ -1,7 +1,7 @@
 package com.tymora.beletskaya_moviesapp.listMovies.data.repository
 
 import com.tymora.beletskaya_moviesapp.listMovies.data.local.MovieDatabase
-import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toMovie
+import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toTopMovies
 import com.tymora.beletskaya_moviesapp.listMovies.data.mappers.toMovieEntity
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.MovieApi
 import com.tymora.beletskaya_moviesapp.listMovies.domain.model.TopMovies
@@ -36,7 +36,7 @@ class MovieListRepositoryImpl @Inject constructor(
                 emit(
                     Resource.Success(
                     data = localMovieList.map { movieEntity ->
-                        movieEntity.toMovie(category)
+                        movieEntity.toTopMovies(category)
                     }
                 ))
 
@@ -70,7 +70,7 @@ class MovieListRepositoryImpl @Inject constructor(
 
             emit(
                 Resource.Success(
-                movieEntities.map { it.toMovie(category) }
+                movieEntities.map { it.toTopMovies(category) }
             ))
             emit(Resource.Loading(false))
 
