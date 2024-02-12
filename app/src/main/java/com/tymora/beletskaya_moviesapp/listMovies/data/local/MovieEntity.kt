@@ -1,7 +1,6 @@
 package com.tymora.beletskaya_moviesapp.listMovies.data.local
 
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.Country
-import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.Genre
+
 import androidx.room.PrimaryKey
 import androidx.room.Entity
 

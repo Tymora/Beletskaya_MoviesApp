@@ -3,7 +3,6 @@ package com.tymora.beletskaya_moviesapp.listMovies.data.remote
 import com.tymora.beletskaya_moviesapp.listMovies.data.remote.responded.ListMovie
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieApi {
