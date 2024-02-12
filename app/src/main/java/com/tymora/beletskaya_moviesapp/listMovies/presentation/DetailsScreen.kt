@@ -98,7 +98,7 @@ fun DetailsScreen() {
                     Text(
                         modifier = Modifier.padding(start = 16.dp),
                         text = movie.nameRu,
-                        fontSize = 19.sp,
+                        fontSize = 27.sp,
                         color = Color.Black,
                         fontFamily = FontFamily.SansSerif,
                         fontWeight = FontWeight.Medium,
