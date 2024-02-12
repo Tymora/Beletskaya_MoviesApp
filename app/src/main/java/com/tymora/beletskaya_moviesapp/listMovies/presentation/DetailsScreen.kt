@@ -138,7 +138,8 @@ fun DetailsScreen() {
                     Text(
                         modifier = Modifier.padding(start = 16.dp),
                         text = stringResource(R.string.genres) + movie.genres,
-                        color = Color.Black,
+                        fontSize = 19.sp,
+                        color = Color.Gray,
                         fontFamily = FontFamily.SansSerif,
                         fontWeight = FontWeight.Medium,
                     )
@@ -148,7 +149,8 @@ fun DetailsScreen() {
                     Text(
                         modifier = Modifier.padding(start = 16.dp),
                         text = stringResource(R.string.country) + movie.countries,
-                        color = Color.Black,
+                        fontSize = 19.sp,
+                        color = Color.Gray,
                         fontFamily = FontFamily.SansSerif,
                         fontWeight = FontWeight.Medium,
                     )
