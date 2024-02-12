@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -98,7 +99,9 @@ fun DetailsScreen() {
                         modifier = Modifier.padding(start = 16.dp),
                         text = movie.nameRu,
                         fontSize = 19.sp,
-                        fontWeight = FontWeight.SemiBold
+                        color = Color.Black,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight.Medium,
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -125,40 +128,34 @@ fun DetailsScreen() {
 
                     Text(
                         modifier = Modifier.padding(start = 16.dp),
-                        text = stringResource(R.string.genres) + movie.genres
+                        text = stringResource(R.string.overview) + movie.countries, //todo описание
+                        fontSize = 19.sp,
+                        color = Color.Gray,
+                        fontFamily = FontFamily.SansSerif,
+                    )
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Text(
+                        modifier = Modifier.padding(start = 16.dp),
+                        text = stringResource(R.string.genres) + movie.genres,
+                        color = Color.Black,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight.Medium,
                     )
 
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Text(
                         modifier = Modifier.padding(start = 16.dp),
-                        text = stringResource(R.string.country) + movie.countries
+                        text = stringResource(R.string.country) + movie.countries,
+                        color = Color.Black,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight.Medium,
                     )
 
                 }
             }
         }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        Text(
-            modifier = Modifier.padding(start = 16.dp),
-            text = stringResource(R.string.overview),
-            fontSize = 19.sp,
-            fontWeight = FontWeight.SemiBold
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        detailsState.movie?.let {
-            Text(
-                modifier = Modifier.padding(start = 16.dp),
-                text = it.countries,  // Тут надо вставить функцию получения описания.
-                fontSize = 16.sp,
-            )
-        }
-
-        Spacer(modifier = Modifier.height(32.dp))
 
 
     }
