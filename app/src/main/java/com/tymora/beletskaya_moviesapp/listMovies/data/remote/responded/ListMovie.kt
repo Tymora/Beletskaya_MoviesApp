@@ -6,5 +6,5 @@ data class ListMovie(
     val items: List<MovieDto>,
     val total: Int,
     val totalPages: Int,
-    val movie: List<MovieDetailsData>
+    val detailsMovie: List<MovieDetailsData>
 )

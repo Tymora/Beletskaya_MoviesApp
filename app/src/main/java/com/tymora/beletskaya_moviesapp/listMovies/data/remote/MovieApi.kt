@@ -14,10 +14,10 @@ interface MovieApi {
         @Header("X-API-KEY") apiKey: String = API_KEY
     ): ListMovie
 
-//    @GET("api/v2.2/films") //Получить данные по 1 фильму
-//    suspend fun getMoviesDetails(
-//        @Header("X-API-KEY") apiKey: String = API_KEY
-//    ): ListMovie
+    @GET("api/v2.2/films") //Получить данные по 1 фильму
+    suspend fun getMoviesDetails(
+        @Header("X-API-KEY") apiKey: String = API_KEY
+    ): ListMovie
 
     companion object{
         const val URL = "https://kinopoiskapiunofficial.tech/"

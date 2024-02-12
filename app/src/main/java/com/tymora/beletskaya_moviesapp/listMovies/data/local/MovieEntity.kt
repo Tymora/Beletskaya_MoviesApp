@@ -21,7 +21,7 @@ data class MovieEntity(
     val year: Int,
 
     @PrimaryKey
-    val kinopoiskId: Int, //todo уточнить
+    val kinopoiskId: Int,
 
     val category: String,
 )

@@ -75,7 +75,7 @@ fun DetailsScreen() {
             Image(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(220.dp),
+                    .height(710.dp),
                 painter = backDropImageState.painter,
                 contentDescription = detailsState.movie?.nameRu,
                 contentScale = ContentScale.Crop
