@@ -8,10 +8,10 @@ fun MovieDto.toMovieEntity(
     category: String
 ): MovieEntity {
     return MovieEntity(
-        imdbId = imdbId,
+        imdbId = imdbId?: "",
         kinopoiskId = kinopoiskId,
         nameEn = nameEn?: "",
-        nameOriginal = nameOriginal,
+        nameOriginal = nameOriginal?: "",
         nameRu = nameRu,
         posterUrl = posterUrl,
         posterUrlPreview = posterUrlPreview,
